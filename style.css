@@ -1,4 +1,4 @@
-@common Styles
+/* @ common Styles */
 
 * {
   margin: 0;
@@ -14,7 +14,7 @@
 html {
   font-size: 62.5%;
 
-  /* ⚡css 027, 스크롤 smooth하게 하기 */
+  /* ⚡css 027, scroll smooth */
   scroll-behavior: smooth;
 }
 
@@ -38,7 +38,6 @@ body {
   top: 2rem;
 
   /* js 019
-  css 014 : navbar width에 맞춰서 넣음
   left: 15vw;   */
   right: 3vw;
 
@@ -102,7 +101,6 @@ body {
 
   padding: 4rem 0 0 4rem;
 
-  /* css 019 box-shadow가 navbar위로 올라와서 번지지 못하게, z-index 10 넣음 */
   z-index: 10;
 }
 
@@ -119,11 +117,10 @@ body {
   letter-spacing: 0.3rem;
   text-transform: uppercase;
 
-  transition: all 0.3s ease; /* CSS 033 */
+  transition: all 0.3s ease;
 }
 
 .navbar-link:hover {
-  /* CSS 033 */
   color: #111;
   transform: scale(1.1);
 }
@@ -149,30 +146,10 @@ section {
   left: 0;
 
   /* js 019 */
-  /* transition안에 transform 추가 */
   transition: left 0.5s, transform 0.5s;
 
   margin-bottom: 3rem;
 
-  /* css 017
-   ⚡perspective & transform 3d
-
-    To activate 3D space, an element needs perspective.
-
-    https://3dtransforms.desandro.com/perspective
-    
-   w1) 한번에 붙여서 
-    transform: perspective(50rem) rotateY(10deg); 
-   
-   w2) 부모 태그와 나누어서  */
-
-  /* css 017
-   js 019
-  transform: rotateY(10deg);
- */
-
-  /* transform-origin: left;
-  https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin */
   transform-origin: left;
 
   box-shadow: 0.5rem 0.5rem 1rem #aaa; /* css 019 */
@@ -181,7 +158,7 @@ section {
 /* js 019  */
 section.change {
   left: 15vw;
-  transform: rotateY(10deg);
+  transform: rotateY(10deg);  /* css 017 perspective & transform 3d */
 }
 
 .section-heading {
