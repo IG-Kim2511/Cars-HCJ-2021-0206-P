@@ -1,0 +1,598 @@
+@common Styles
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: "Special Elite", cursive;
+  font-weight: 400;
+}
+
+html {
+  font-size: 62.5%;
+
+  /* ⚡css 027, 스크롤 smooth하게 하기 */
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ccc;
+  padding-right: 3rem;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+/* @ menu */
+.menu {
+  width: 4rem;
+  height: 4rem;
+
+  position: fixed;
+  top: 2rem;
+
+  /* js 019
+  css 014 : navbar width에 맞춰서 넣음
+  left: 15vw;   */
+  right: 3vw;
+
+  /* js 019 */
+  transition: all 0.5s;
+
+  flex-direction: column;
+
+  cursor: pointer;
+
+  z-index: 20;
+}
+
+/* js 019  */
+.menu.change {
+  /* left: 15vw; */
+
+  /* css 030 click btn and trasform 'X'shape */
+  transform: rotate(45deg);
+}
+
+.menu-line {
+  width: 100%;
+  height: 0.2rem;
+  background-color: #fff;
+  margin: 0.3rem 0;
+  box-shadow: 0.1rem 0.1rem 0.3rem #222;
+
+  /* css 030  */
+  transition: all 0.5s;
+}
+
+/* css 030 click btn and trasform 'X'shape */
+.change .menu-line-1 {
+  transform: rotate(270deg) translateX(-0.4rem);
+}
+.change .menu-line-2 {
+  transform: rotate(360deg) translateY(-0.4rem);
+}
+
+/* @ navbar */
+
+/* js */
+
+.navbar {
+  width: 13.5vw; /* css 014 */
+  height: 100vh;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+
+  /* js 019
+  left: 0; */
+  left: -35vw;
+
+  /* js 019 */
+  transition: left 0.5s;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 4rem 0 0 4rem;
+
+  /* css 019 box-shadow가 navbar위로 올라와서 번지지 못하게, z-index 10 넣음 */
+  z-index: 10;
+}
+
+/* js 019  */
+.navbar.change {
+  left: 0;
+}
+
+.navbar-link {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 2rem 0;
+  color: #777;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+
+  transition: all 0.3s ease; /* CSS 033 */
+}
+
+.navbar-link:hover {
+  /* CSS 033 */
+  color: #111;
+  transform: scale(1.1);
+}
+
+/* @ common section styles */
+
+.wrapper {
+  width: 100%;
+
+  perspective: 50rem; /* css 017  */
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  background-color: #efefef;
+  padding: 5rem 0;
+
+  position: relative;
+
+  /* js 019
+  left: 15vw; */
+  left: 0;
+
+  /* js 019 */
+  /* transition안에 transform 추가 */
+  transition: left 0.5s, transform 0.5s;
+
+  margin-bottom: 3rem;
+
+  /* css 017
+   ⚡perspective & transform 3d
+
+    To activate 3D space, an element needs perspective.
+
+    https://3dtransforms.desandro.com/perspective
+    
+   w1) 한번에 붙여서 
+    transform: perspective(50rem) rotateY(10deg); 
+   
+   w2) 부모 태그와 나누어서  */
+
+  /* css 017
+   js 019
+  transform: rotateY(10deg);
+ */
+
+  /* transform-origin: left;
+  https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin */
+  transform-origin: left;
+
+  box-shadow: 0.5rem 0.5rem 1rem #aaa; /* css 019 */
+}
+
+/* js 019  */
+section.change {
+  left: 15vw;
+  transform: rotateY(10deg);
+}
+
+.section-heading {
+  font-size: 10rem;
+  font-weight: bolder;
+  color: #fff;
+  margin-bottom: 10rem;
+  margin-bottom: 1rem;
+  text-align: center; /* text를 width의 중앙으로.. */
+  text-shadow: 0.3rem 0.3rem 0.5rem #555;
+}
+
+/* @ section-1 */
+.section-1 {
+  flex-direction: column;
+  background: url(images/bg-section1.jpg) center no-repeat;
+  background-size: cover;
+}
+
+.section-1 .section-heading {
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+
+  text-shadow: 1rem 1rem 1rem #000, 2rem 2rem 2rem #111, 3rem 3rem 3rem #222; /* text-shadow 3개 중첩 넣을 수 있음 */
+}
+.section-1-img {
+  width: 70%;
+
+  /* img center정렬  
+  https://www.freecodecamp.org/news/how-to-center-an-image-in-css/   */
+  margin: 0 auto;
+  display: block;
+}
+
+/* @section 2 */
+.section-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.card {
+  width: 50rem;
+  margin: 0 3rem;
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0.6rem 0.6rem 0.6rem #bbb;
+
+  transition: all 0.5s; /* css 044 */
+
+  position: relative;
+}
+
+/* css 044 */
+.card:hover {
+  box-shadow: 1rem 1rem 2rem #bbb;
+  transform: scale(1.05);
+}
+.car-name {
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 10;
+}
+.card-img {
+  width: 100%;
+  opacity: 0.8;
+  transition: opacity 0.5s; /* css 045 항상 all할 필요없이, opacity로 지정해서 적용  */
+}
+
+/* css 045 card에 hover하면, .card-img에 적용 */
+.card:hover .card-img {
+  opacity: 1;
+}
+
+.car-price {
+  font-size: 1.8rem;
+  color: #777;
+  margin: 0.5rem 0;
+}
+
+.card-btn {
+  width: 100%;
+  background-color: #fff;
+  font-size: 1.7rem;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  color: #fff;
+  text-shadow: 0.1rem 0.1rem 0.3rem #000;
+  box-shadow: 0.1rem 0.1rem 0.5rem #bbb;
+}
+
+/* @ section 3 */
+
+.section-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #222;
+}
+.video {
+  width: 25%;
+  margin: 0 2rem;
+  border-radius: 0.5rem;
+
+  opacity: 0.5;
+  box-shadow: 0.3rem 0.3rem 0.5rem #111;
+
+  transition: all 1s;
+}
+
+.video:hover {
+  opacity: 1;
+  box-shadow: 1rem 1rem 1rem #bbb;
+}
+
+/* @ section 4 */
+
+.section-4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gallery {
+  margin: 10rem 0;
+
+  perspective: 10rem; /* css 101 perspective & transform*/
+}
+
+.gallery-shelf {
+  width: 80%;
+  height: 3rem;
+  background-color: rgba(38, 126, 199, 0.8);
+  margin: auto;
+  box-shadow: 1rem 1rem 5rem #444;
+
+  position: relative; /*  css 100 */
+}
+.gallery-shelf::before {
+  content: "";
+  position: absolute; /* css 100 */
+  width: 100%;
+  height: 10rem;
+  background-color: rgba(34, 152, 248, 0.7);
+  top: -10rem;
+
+  /* css 101 rotateX : 뒤로 눕힘 */
+  transform: rotateX(20deg);
+  transform-origin: bottom;
+}
+
+.gallery img {
+  width: 15%;
+
+  box-shadow: 0.2rem -0.2rem 0.5rem #888;
+  border-radius: 0.5rem;
+
+  /* css 103 
+  🚀image 가운데 정렬 공식 2 : 
+    1. position: absolute 사용함, 각 이미지마다 위치 지정
+    2. 왼쪽오른쪽으로 전체 라인 이동해서 가운데 맞춤   */
+
+  position: absolute;
+  bottom: 6rem;
+
+  transform: translateX(-50%) rotateX(5deg); /* css 103-2. */
+
+  transition: all 0.3s; /* css 106 */
+
+  /* css 106 
+  transform이 bottom을 기준으로 되게 하기 : 보기에 더 좋음*/
+  transform-origin: bottom;
+}
+
+/* css 103-1  */
+.gallery-img-1,
+.gallery-img-4 {
+  left: 50%;
+}
+.gallery-img-2,
+.gallery-img-5 {
+  left: 30%;
+}
+.gallery-img-3,
+.gallery-img-6 {
+  left: 70%;
+}
+
+/* css 106 */
+.gallery img:hover {
+  transform: translateX(-50%) rotate(0) scale(1.3);
+  box-shadow: 0 0.2rem 0.3rem #888;
+}
+
+/* @ section 5 */
+
+.section-5 {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+    url(images/bg-section5.jpg) center no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 0;
+}
+.contact-form {
+  width: 60rem;
+  height: 45rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2rem solid rgba(255, 255, 255, 0.8);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  height: 4rem;
+  margin: 2rem 0;
+
+  /* css 114 ,  background-color: transparent;
+  흰색배경을 투명하게 해서, 뒤의 image배경이 보이게 함 */
+  background-color: transparent;
+
+  padding: 0.5rem;
+  border: 0.1rem solid #fff;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  color: #fff;
+
+  /* css 116 , flex-shrink: 0;
+  textarea 높이가 바뀔때, 위아래의 input박스 크기도 바뀌는 문제 생김
+  flex-shrink: 0;으로 설정하면 안바뀜     */
+  flex-shrink: 0;
+
+  transition: background-color 0.5s; /* css 117 */
+}
+
+.contact-form textarea {
+  max-width: 100%;
+  min-height: 8rem;
+}
+
+/* css 117 */
+.form-input:focus {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form .form-btn {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  letter-spacing: 0.3rem;
+  color: #444;
+  cursor: pointer;
+}
+
+.copyright {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #fff;
+}
+
+/* @ responsive */
+@media (max-width: 1500px) {
+  .section-heading {
+    font-size: 7rem;
+  }
+
+  .section-1 {
+    height: 80vh;
+  }
+  .section-2 {
+    /* css 123 , 화면밖으로 나가는 이미지 화면안으로 들어오게 해결*/
+    height: auto;
+    padding: 5rem 0 10rem 0;
+  }
+
+  .cards-wrapper {
+    /* css 123,  flex-wrap: wrap;
+  breakpoint에서 자동 줄바꿈
+  버그: 자동줄바꿈해서 세로정렬되면 이미지들의 높이가 화면보다 높아져서, 화면 밖으로 나감
+  */
+    flex-wrap: wrap;
+  }
+
+  .card {
+    width: 40rem;
+    margin: 3rem;
+  }
+
+  .section-heading {
+    font-size: 6rem;
+  }
+
+  .section-3 {
+    padding: 5rem 3rem;
+  }
+  .video {
+    width: 30%;
+    margin: 2rem;
+  }
+
+  .section-4 {
+    height: auto;
+  }
+
+  .gallery {
+    margin: 12rem 0;
+  }
+
+  .gallery-shelf {
+    width: 90%;
+  }
+
+  .gallery img {
+    width: 20%;
+  }
+
+  .gallery-img-2,
+  .gallery-img-5 {
+    left: 25%;
+  }
+
+  .gallery-img-3,
+  .gallery-img-6 {
+    left: 75%;
+  }
+
+  .section-5 {
+    height: auto;
+  }
+
+  .contact-form {
+    width: 55rem;
+    height: 40rem;
+    padding: 2rem;
+  }
+}
+
+/* @ */
+@media (max-width: 1000px) {
+  .section-heading {
+    font-size: 4rem;
+  }
+  section {
+    height: 60vh;
+    padding: 2rem;
+  }
+
+  .section-3 {
+    /* ⚡ css 123 , 화면밖으로 나가는 이미지 화면안으로 들어오게 해결*/
+    height: auto;
+  }
+
+  .video-wrapper {
+    /* css 123 , column되면서 화면밖으로 이미지가 나가는 버그*/
+    flex-direction: column;
+  }
+  .video {
+    width: 70%;
+    margin: 3rem auto;
+  }
+}
+
+/* @ */
+
+@media (max-width: 750px) {
+  .navbar {
+    padding: 0 0;
+  }
+
+  .navbar-link {
+    font-size: 1em;
+  }
+
+  .gallery-shelf {
+    height: 1.5rem;
+    width: 95%;
+  }
+
+  .gallery-shelf::before {
+    height: 5rem;
+    top: -5rem;
+  }
+
+  .gallery img {
+    width: 25%;
+    bottom: 4rem;
+  }
+
+  .gallery-img-2,
+  .gallery-img-5 {
+    left: 22%;
+  }
+
+  .gallery-img-3,
+  .gallery-img-6 {
+    left: 78%;
+  }
+}
